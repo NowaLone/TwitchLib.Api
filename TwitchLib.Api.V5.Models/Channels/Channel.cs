@@ -21,6 +21,11 @@ namespace TwitchLib.Api.V5.Models.Channels
         [JsonProperty(PropertyName = "created_at")]
         public DateTime CreatedAt { get; internal set; }
         #endregion
+        #region Description
+        /// <summary>Property representing the description of the channel.</summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; internal set; }
+        #endregion
         #region DisplayName
         /// <summary>Property representing the case sensitive display name of the channel.</summary>
         [JsonProperty(PropertyName = "display_name")]
@@ -94,7 +99,7 @@ namespace TwitchLib.Api.V5.Models.Channels
         #region VideoBanner
         /// <summary>Property representing the video banner of the channel.</summary>
         [JsonProperty(PropertyName = "video_banner")]
-        public string VideoBanner { get; internal set; }
+        public Uri VideoBanner { get; internal set; }
         #endregion
         #region Views
         /// <summary>Property representing the number of views the channel has.</summary>
