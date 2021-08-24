@@ -61,7 +61,7 @@ namespace TwitchLib.Api.V5
         {
             var getParams = new List<KeyValuePair<string, string>>();
             if (game != null)
-                getParams.Add(new KeyValuePair<string, string>("game", game));
+                getParams.Add(new KeyValuePair<string, string>("game", game.ToLower()));
 
             return TwitchGetGenericAsync<StreamsSummary>("/streams/summary", ApiVersion.V5, getParams);
         }
