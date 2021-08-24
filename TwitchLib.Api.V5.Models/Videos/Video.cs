@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using TwitchLib.Api.V5.Models.Channels;
 
 namespace TwitchLib.Api.V5.Models.Videos
 {
@@ -24,7 +25,7 @@ namespace TwitchLib.Api.V5.Models.Videos
         #endregion
         #region Channel
         [JsonProperty(PropertyName = "channel")]
-        public VideoChannel Channel { get; protected set; }
+        public Channel Channel { get; protected set; }
         #endregion
         #region CreatedAt
         [JsonProperty(PropertyName = "created_at")]
