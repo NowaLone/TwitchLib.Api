@@ -120,6 +120,30 @@ namespace TwitchLib.Api.V5
 
         #endregion
 
+        #region GetUserGamesFollows
+
+        public Task<UserGamesFollows> GetUserGamesFollowsAsync(string userId, int? limit = null, int? offset = null, string direction = null, string sortby = null, string cursor = null)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new BadParameterException("The user id is not valid. It is not allowed to be null, empty or filled with whitespaces.");
+
+            var getParams = new List<KeyValuePair<string, string>>();
+            if (limit.HasValue)
+                getParams.Add(new KeyValuePair<string, string>("limit", limit.Value.ToString()));
+            if (offset.HasValue)
+                getParams.Add(new KeyValuePair<string, string>("offset", offset.Value.ToString()));
+            if (!string.IsNullOrEmpty(direction) && (direction == "asc" || direction == "desc"))
+                getParams.Add(new KeyValuePair<string, string>("direction", direction));
+            if (!string.IsNullOrEmpty(sortby) && (sortby == "created_at" || sortby == "last_broadcast" || sortby == "login"))
+                getParams.Add(new KeyValuePair<string, string>("sortby", sortby));
+            if (cursor != null)
+                getParams.Add(new KeyValuePair<string, string>("cursor", cursor));
+
+            return TwitchGetGenericAsync<UserGamesFollows>($"/users/{userId}/follows/games", ApiVersion.V5, getParams);
+        }
+
+        #endregion GetUserGamesFollows
+
         #region CheckUserFollowsByChannel
 
         public Task<UserFollow> CheckUserFollowsByChannelAsync(string userId, string channelId)
