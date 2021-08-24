@@ -24,6 +24,6 @@ jobs:
     - name: Pack
       run: dotnet pack ".\TwitchLib.Api\TwitchLib.Api.csproj" --configuration Release --no-build
     - name: Add GitHub Source
-      run: dotnet nuget add source https://nuget.pkg.github.com/Fihs/index.json -n github -u Fihs -p ${{secrets.GITHUB_TOKEN}}
+      run: dotnet nuget add source https://nuget.pkg.github.com/NowaruAlone/index.json -n github -u Fihs -p ${{secrets.GITHUB_TOKEN}}
     - name: Push to GitHub Packages
       run: dotnet nuget push "**.nupkg" --source "github"
