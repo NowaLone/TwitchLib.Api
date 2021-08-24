@@ -22,8 +22,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Pack Parsers
-      run: dotnet pack "~/TwitchLib.Api/TwitchLib.Api/TwitchLib.Api.csproj" --configuration Release --no-build
+    - name: Pack
+      run: dotnet pack "~/TwitchLib.Api/TwitchLib.Api.csproj" --configuration Release --no-build
     - name: Add GitHub Source
       run: dotnet nuget add source https://nuget.pkg.github.com/Fihs/index.json -n github -u Fihs -p ${{secrets.GITHUB_TOKEN}}
     - name: Push to GitHub Packages
