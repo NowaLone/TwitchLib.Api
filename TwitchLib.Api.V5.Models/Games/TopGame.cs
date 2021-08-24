@@ -6,15 +6,15 @@ namespace TwitchLib.Api.V5.Models.Games
     {
         #region Channels
         [JsonProperty(PropertyName = "channels")]
-        public int Channels { get; protected set; }
+        public int Channels { get; set; }
         #endregion
         #region Viewers
         [JsonProperty(PropertyName = "viewers")]
-        public int Viewers { get; protected set; }
+        public int Viewers { get; set; }
         #endregion
         #region Game
         [JsonProperty(PropertyName = "game")]
-        public Game Game { get; protected set; }
+        public Game Game { get; set; }
         #endregion
     }
 }
